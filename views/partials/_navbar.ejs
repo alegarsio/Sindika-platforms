@@ -1,0 +1,57 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20">
+    <div class="container mx-auto max-w-7xl px-6">
+        <nav class="flex justify-between items-center py-5">
+            <a href="/" class="text-2xl font-bold tracking-tight text-slate-900 hover:text-blue-600 transition-colors">
+                Sindika
+            </a>
+
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="/solusi" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Solusi Kami</a>
+                <a href="/core-platform" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Core Platform</a>
+                <a href="/tentang" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Tentang Kami</a>
+                <a href="/sindi-ai" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">SINDI AI</a>
+            </div>
+
+            <a href="#" class="hidden md:inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                Jadwalkan Demo
+            </a>
+            
+            <div class="md:hidden">
+                <button id="hamburger-btn" class="text-slate-900 focus:outline-none">
+                    <svg id="icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm shadow-lg">
+        <div class="px-6 pt-2 pb-6 space-y-4">
+            <a href="/solusi" class="block text-slate-700 hover:text-blue-600 font-medium py-2">Solusi Kami</a>
+            <a href="/core-platform" class="block text-slate-700 hover:text-blue-600 font-medium py-2">Core Platform</a>
+            <a href="/tentang" class="block text-slate-700 hover:text-blue-600 font-medium py-2">Tentang Kami</a>
+            <a href="/sindi-ai" class="block text-slate-700 hover:text-blue-600 font-medium py-2">SINDI AI</a>
+            <hr class="border-slate-200/80 my-4">
+            <a href="#" class="block text-center bg-blue-600 text-white font-semibold w-full px-6 py-2.5 rounded-xl shadow-md">
+                Jadwalkan Demo
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    hamburgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+    });
+</script>

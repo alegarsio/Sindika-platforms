@@ -46,6 +46,10 @@ app.get('/konselor-ai', (req, res) => {
     res.render('konselor-ai'); 
 });
 
+app.get('/tentang', (req, res) => {
+    res.render('tentang');
+});
+
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
 });

@@ -91,25 +91,7 @@
     </div>
 
     <!-- Header -->
-       <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20">
-        <div class="container mx-auto max-w-7xl px-6">
-            <nav class="flex justify-between items-center py-5">
-                <a href="/" class="text-2xl font-bold tracking-tight text-slate-900 hover:text-blue-600 transition-colors">
-                    Sindika
-                </a>
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="#fitur" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Fitur Unggulan</a>
-                    <a href="#analitik" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Analitik & AI</a>
-                    <a href="/solusi" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Solusi Kami</a>
-                    <a href="/core-platform" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Core Platform</a>
-                    <a href="/sindi-ai" class="font-bold text-blue-600 transition-colors duration-300">SINDI AI</a>
-                </div>
-                <a href="#" class="hidden md:inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    Jadwalkan Demo
-                </a>
-            </nav>
-        </div>
-    </header>
+        <%- include('partials/_navbar') %>
 
     <!-- Main Content -->
     <main class="w-full flex flex-col items-center justify-center min-h-screen pt-40 pb-20 px-6">
@@ -320,6 +302,74 @@
                     </div>
                 </div>
 
+
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-violet-500/10 via-fuchsia-500/10 to-purple-500/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
+                    <div class="relative card-hover p-10 md:p-12 bg-gradient-to-br from-white/95 to-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/60">
+                        <div class="flex flex-col lg:flex-row items-center gap-10">
+                            <div class="flex-shrink-0">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-violet-500 to-fuchsia-600 rounded-3xl blur-xl opacity-50"></div>
+                                    <div class="relative w-28 h-28 bg-gradient-to-br from-violet-500 via-fuchsia-500 to-purple-600 rounded-3xl flex items-center justify-center shadow-2xl">
+                                        <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-1 text-center lg:text-left">
+                                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-4">
+                                    <h2 class="text-4xl font-black text-slate-900">Sistem Absensi Cerdas</h2>
+                                    <span class="px-4 py-1.5 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 rounded-full text-xs font-bold text-violet-700">AI POWERED</span>
+                                </div>
+                                <p class="text-lg text-slate-700 leading-relaxed mb-6">
+                                    Teknologi absensi canggih yang menggabungkan QR Code scanning dan AI-powered Face Recognition untuk mencatat kehadiran jemaat secara otomatis, akurat, dan efisien. Tidak perlu lagi absensi manual atau buku tamu—sistem kami mencatat kehadiran dalam hitungan detik dengan tingkat akurasi tinggi.
+                                </p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="flex items-start gap-3 p-4 bg-violet-50/50 rounded-xl border border-violet-100/50">
+                                        <svg class="w-6 h-6 text-violet-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 mb-1">QR Code Check-In</h4>
+                                            <p class="text-sm text-slate-600">Scan QR code personal untuk absensi cepat tanpa kontak fisik</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3 p-4 bg-fuchsia-50/50 rounded-xl border border-fuchsia-100/50">
+                                        <svg class="w-6 h-6 text-fuchsia-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 mb-1">AI Face Detection</h4>
+                                            <p class="text-sm text-slate-600">Teknologi pengenalan wajah otomatis untuk absensi tanpa sentuh</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3 p-4 bg-purple-50/50 rounded-xl border border-purple-100/50">
+                                        <svg class="w-6 h-6 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 mb-1">Laporan Real-Time</h4>
+                                            <p class="text-sm text-slate-600">Dashboard kehadiran langsung dengan statistik dan visualisasi data</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3 p-4 bg-pink-50/50 rounded-xl border border-pink-100/50">
+                                        <svg class="w-6 h-6 text-pink-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 mb-1">Multi-Event Support</h4>
+                                            <p class="text-sm text-slate-600">Kelola absensi untuk berbagai acara: ibadah, persekutuan, hingga retreat</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             </div>
 
             <!-- Benefits Section -->
@@ -365,54 +415,10 @@
                 </div>
             </div>
 
-            <!-- CTA Section -->
-            <div class="mt-24 relative">
-                <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl"></div>
-                <div class="relative p-12 bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/60 text-center">
-                    <div class="max-w-3xl mx-auto">
-                        <h3 class="text-4xl font-black text-slate-900 mb-4">
-                            Siap Transformasi Digital?
-                        </h3>
-                        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-                            Bergabunglah dengan puluhan gereja yang telah mempercayai Sindika untuk mengelola data jemaat mereka
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="#" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                </svg>
-                                Jadwalkan Demo
-                            </a>
-                            <a href="#" class="inline-flex items-center justify-center gap-2 bg-white text-slate-700 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border border-slate-200">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Hubungi Kami
-                            </a>
-                        </div>
-                        <div class="mt-8 flex items-center justify-center gap-8 text-sm text-slate-500">
-                            <div class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span>Setup Gratis</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span>Training Included</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span>Support 24/7</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
+
+
+            
 
         </section>
     </main>

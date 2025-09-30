@@ -5,106 +5,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sindika Storage API - Manajemen Dokumen Gereja</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
         .feature-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
         }
+        
         .feature-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
         }
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .ai-gradient {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%);
+        }
+        
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
+        }
+        
+        .glow {
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+        }
+        
+        .ai-glow {
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+        }
+        
+        .icon-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .icon-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .feature-card:hover .icon-wrapper::before {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50 min-h-screen">
-        <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20">
-        <div class="container mx-auto max-w-7xl px-6">
-            <nav class="flex justify-between items-center py-5">
-                <a href="/" class="text-2xl font-bold tracking-tight text-slate-900 hover:text-blue-600 transition-colors">
-                    Sindika
-                </a>
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="#fitur" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Fitur Unggulan</a>
-                    <a href="#analitik" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Analitik & AI</a>
-                    <a href="/solusi" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Solusi Kami</a>
-                    <a href="/core-platform" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Core Platform</a>
-                    <a href="/sindi-ai" class="font-bold text-blue-600 transition-colors duration-300">SINDI AI</a>
-                </div>
-                <a href="#" class="hidden md:inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    Jadwalkan Demo
-                </a>
-            </nav>
-        </div>
-    </header>
+     <%- include('partials/_navbar') %>
 
-    <main class="container mx-auto max-w-5xl px-6 pt-32 pb-16">
-        <div class="text-center mb-12">
-            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-6">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <main class="container mx-auto max-w-6xl px-6 pt-32 pb-20">
+        <div class="text-center mb-16 fade-in-up">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl mb-8 glow float-animation">
+                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
                 </svg>
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-3">Storage API</h1>
-            <h2 class="text-xl md:text-2xl font-medium text-emerald-600 mb-6">Pusat Dokumen Gereja yang Aman</h2>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Kelola semua dokumen penting gereja Anda dengan aman. Dari notulensi majelis, laporan keuangan, hingga materi pembinaan jemaat—semuanya tersimpan terpusat dan terorganisir dengan baik.
+            <h1 class="text-6xl md:text-7xl font-extrabold text-slate-900 mb-4 tracking-tight">Storage API</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold gradient-text mb-8">Pusat Dokumen Gereja yang Aman & Cerdas</h2>
+            <p class="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+                Kelola semua dokumen penting gereja Anda dengan aman dan cerdas. Dari notulensi majelis, laporan keuangan, hingga materi pembinaan jemaat—semuanya tersimpan terpusat, terorganisir, dan dibantu oleh AI.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-            <div class="feature-card p-8 bg-white/70 backdrop-blur-lg border border-white/50 rounded-3xl shadow-lg">
-                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl mb-4 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+        <!-- AI Assistant Feature - Hero -->
+        <div class="mb-16 p-10 glass-morphism rounded-3xl shadow-2xl ai-glow fade-in-up relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 ai-gradient rounded-full filter blur-3xl opacity-20"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full filter blur-3xl opacity-20"></div>
+            
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                <div class="w-24 h-24 ai-gradient rounded-3xl flex items-center justify-center flex-shrink-0 shadow-xl">
+                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-2">Organisasi Dokumen Rapi</h3>
-                <p class="text-slate-600">Pisahkan dokumen berdasarkan kategori: notulensi majelis, laporan keuangan, materi katekisasi, surat keputusan, dan arsip sejarah gereja—semua terstruktur dengan rapi.</p>
-            </div>
-
-            <div class="feature-card p-8 bg-white/70 backdrop-blur-lg border border-white/50 rounded-3xl shadow-lg">
-                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl mb-4 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
+                <div class="flex-1 text-center md:text-left">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-3">AI-Powered Intelligent File Assistant</h3>
+                    <p class="text-lg text-slate-600 mb-4">Asisten AI yang memahami konteks gereja Anda. Temukan dokumen dengan bahasa natural, dapatkan ringkasan instan, dan ekstrak informasi penting hanya dengan bertanya.</p>
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-xl font-medium text-sm">🔍 Pencarian Cerdas</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-xl font-medium text-sm">📝 Ringkasan Otomatis</span>
+                        <span class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-xl font-medium text-sm">💡 Rekomendasi Dokumen</span>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-2">Akses Berbasis Peran</h3>
-                <p class="text-slate-600">Kontrol siapa yang bisa melihat apa. Majelis akses penuh, komisi lihat dokumen pelayanan mereka, jemaat akses materi umum—semuanya teratur dan aman.</p>
-            </div>
-
-            <div class="feature-card p-8 bg-white/70 backdrop-blur-lg border border-white/50 rounded-3xl shadow-lg">
-                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl mb-4 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-2">Riwayat & Versi Dokumen</h3>
-                <p class="text-slate-600">Lacak setiap perubahan dokumen penting. Siapa yang upload, kapan direvisi, dan akses versi sebelumnya—transparansi penuh untuk akuntabilitas gereja.</p>
-            </div>
-
-            <div class="feature-card p-8 bg-white/70 backdrop-blur-lg border border-white/50 rounded-3xl shadow-lg">
-                <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl mb-4 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-2">Backup Otomatis</h3>
-                <p class="text-slate-600">Dokumen penting gereja tidak akan pernah hilang. Sistem backup otomatis menjaga sejarah dan arsip gereja tetap aman untuk generasi mendatang.</p>
             </div>
         </div>
 
-        <div class="mt-16 p-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl shadow-2xl text-white text-center">
-            <h3 class="text-3xl font-bold mb-4">Akhiri Era Dokumen Berantakan</h3>
-            <p class="text-lg mb-6 text-emerald-100">Tidak perlu lagi mencari dokumen di lemari arsip atau email. Semua dokumen gereja ada di satu tempat yang aman dan mudah diakses.</p>
-            <a href="#" class="inline-flex items-center px-8 py-4 bg-white text-emerald-600 font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all">
-                Mulai Kelola Dokumen Gereja
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-            </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+            <div class="feature-card p-10 glass-morphism rounded-3xl shadow-xl hover:shadow-2xl">
+                <div class="icon-wrapper w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-6 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3">Organisasi Dokumen Rapi</h3>
+                <p class="text-slate-600 text-lg leading-relaxed">Pisahkan dokumen berdasarkan kategori: notulensi majelis, laporan keuangan, materi katekisasi, surat keputusan, dan arsip sejarah gereja—semua terstruktur dengan rapi.</p>
+            </div>
+
+            <div class="feature-card p-10 glass-morphism rounded-3xl shadow-xl hover:shadow-2xl">
+                <div class="icon-wrapper w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl mb-6 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3">Akses Berbasis Peran</h3>
+                <p class="text-slate-600 text-lg leading-relaxed">Kontrol siapa yang bisa melihat apa. Majelis akses penuh, komisi lihat dokumen pelayanan mereka, jemaat akses materi umum—semuanya teratur dan aman.</p>
+            </div>
+
+            <div class="feature-card p-10 glass-morphism rounded-3xl shadow-xl hover:shadow-2xl">
+                <div class="icon-wrapper w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl mb-6 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3">Riwayat & Versi Dokumen</h3>
+                <p class="text-slate-600 text-lg leading-relaxed">Lacak setiap perubahan dokumen penting. Siapa yang upload, kapan direvisi, dan akses versi sebelumnya—transparansi penuh untuk akuntabilitas gereja.</p>
+            </div>
+
+            <div class="feature-card p-10 glass-morphism rounded-3xl shadow-xl hover:shadow-2xl">
+                <div class="icon-wrapper w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl mb-6 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3">Backup Otomatis</h3>
+                <p class="text-slate-600 text-lg leading-relaxed">Dokumen penting gereja tidak akan pernah hilang. Sistem backup otomatis menjaga sejarah dan arsip gereja tetap aman untuk generasi mendatang.</p>
+            </div>
+        </div>
+
+        <!-- AI Features Grid -->
+        <div class="mt-16 p-1 bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-500 rounded-3xl shadow-2xl">
+            <div class="bg-white rounded-3xl p-10">
+                <h3 class="text-3xl font-bold text-center text-slate-900 mb-10">Kecerdasan AI untuk Manajemen Dokumen</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 ai-gradient rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">Pencarian Natural</h4>
+                        <p class="text-slate-600">"Cari notulen rapat majelis bulan Januari yang membahas anggaran"</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 ai-gradient rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">Ekstraksi Informasi</h4>
+                        <p class="text-slate-600">Ambil data penting dari dokumen panjang dalam hitungan detik</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 ai-gradient rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">Tanya Dokumen</h4>
+                        <p class="text-slate-600">Ajukan pertanyaan langsung tentang isi dokumen, dapatkan jawaban instan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20 p-12 bg-gradient-to-br from-emerald-500 via-teal-500 to-emerald-600 rounded-3xl shadow-2xl text-white text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full shimmer"></div>
+            <div class="relative z-10">
+                <h3 class="text-4xl md:text-5xl font-bold mb-6">Akhiri Era Dokumen Berantakan</h3>
+                <p class="text-xl mb-8 text-emerald-50 max-w-3xl mx-auto leading-relaxed">Tidak perlu lagi mencari dokumen di lemari arsip atau email. Semua dokumen gereja ada di satu tempat yang aman, mudah diakses, dan dilengkapi asisten AI yang siap membantu.</p>
+                <a href="#" class="inline-flex items-center px-10 py-5 bg-white text-emerald-600 font-bold text-lg rounded-2xl shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300">
+                    Mulai Kelola Dokumen Gereja
+                    <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+            </div>
         </div>
     </main>
 </body>
