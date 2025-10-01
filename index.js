@@ -52,6 +52,11 @@ app.get('/tentang', (req, res) => {
 app.get('/jadwalkan-demo', (req, res) => {
     res.render('jadwalkan-demo');
 });
+
+app.get('/file-assistant', (req, res) => {
+    res.render('file-assistant');
+});
+
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
 });
