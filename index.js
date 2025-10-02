@@ -57,6 +57,23 @@ app.get('/file-assistant', (req, res) => {
     res.render('file-assistant');
 });
 
+app.get('/database-jemaat', (req, res) => {
+    res.render('database-jemaat');
+});
+app.get('/digital-footprint', (req, res) => {
+    res.render('digital-footprint');
+});
+
+app.get('/sistem-absensi', (req, res) => {
+    res.render('sistem-absensi');
+});
+
+
+app.get('/ai-analytics', (req, res) => {
+    res.render('ai-analytics');
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
 });
