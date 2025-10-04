@@ -1,10 +1,12 @@
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20">
     <div class="container mx-auto max-w-7xl px-6">
         <nav class="flex justify-between items-center py-5">
+            <!-- Logo -->
             <a href="/" class="text-2xl font-bold tracking-tight text-slate-900 hover:text-blue-600 transition-colors">
                 Sindika
             </a>
 
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-10">
                 <a href="/solusi" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Solusi Kami</a>
                 <a href="/core-platform" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">Core Platform</a>
@@ -12,46 +14,69 @@
                 <a href="/sindi-ai" class="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium">SINDI AI</a>
             </div>
 
-            <a href="/jadwalkan-demo" class="hidden md:inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <!-- CTA Desktop -->
+            <a href="/jadwalkan-demo" class="hidden md:inline-block bg-gradient-to-r from-orange-500 to-blue-600 text-white font-semibold px-6 py-2.5 rounded-xl hover:scale-105 transition-all duration-300">
                 Hubungi Kami
             </a>
             
+            <!-- Hamburger -->
             <div class="md:hidden">
                 <button id="hamburger-btn" class="text-slate-900 focus:outline-none">
                     <svg id="icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                    <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
                 </button>
             </div>
         </nav>
     </div>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm shadow-lg">
-        <div class="px-6 pt-2 pb-6 space-y-4">
-            <a href="/solusi" class="block text-slate-700 hover:text-blue-600 font-medium py-2">Solusi Kami</a>
-            <a href="/core-platform" class="block text-slate-700 hover:text-blue-600 font-medium py-2">Core Platform</a>
-            <a href="/tentang" class="block text-slate-700 hover:text-blue-600 font-medium py-2">Tentang Kami</a>
-            <a href="/sindi-ai" class="block text-slate-700 hover:text-blue-600 font-medium py-2">SINDI AI</a>
-            <hr class="border-slate-200/80 my-4">
-            <a href="#" class="block text-center bg-blue-600 text-white font-semibold w-full px-6 py-2.5 rounded-xl shadow-md">
-                Hubungi Kami
-            </a>
-        </div>
-    </div>
 </header>
+
+<!-- Sidebar Overlay -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm hidden z-40"></div>
+
+<!-- Sidebar Mobile -->
+<aside id="mobile-sidebar" class="fixed top-0 right-0 h-full w-72 bg-white/95 backdrop-blur-xl border-l border-white/20 transform translate-x-full transition-transform duration-300 z-50">
+    <div class="flex justify-between items-center px-6 py-5 border-b border-slate-200/60">
+        <span class="text-xl font-bold text-slate-800">Menu</span>
+        <button id="close-btn" class="text-slate-600 hover:text-red-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="px-6 py-6 space-y-4">
+        <a href="/solusi" class="block text-slate-700 hover:text-blue-600 font-medium">Solusi Kami</a>
+        <a href="/core-platform" class="block text-slate-700 hover:text-blue-600 font-medium">Core Platform</a>
+        <a href="/tentang" class="block text-slate-700 hover:text-blue-600 font-medium">Tentang Kami</a>
+        <a href="/sindi-ai" class="block text-slate-700 hover:text-blue-600 font-medium">SINDI AI</a>
+        <hr class="border-slate-200/70 my-4">
+        <a href="/jadwalkan-demo" class="block text-center bg-gradient-to-r from-orange-500 to-blue-600 text-white font-semibold w-full px-6 py-3 rounded-xl hover:scale-105 transition-all duration-300">
+            Hubungi Kami
+        </a>
+    </div>
+</aside>
 
 <script>
     const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const closeBtn = document.getElementById('close-btn');
 
+    // Open sidebar
     hamburgerBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        iconOpen.classList.toggle('hidden');
-        iconClose.classList.toggle('hidden');
+        sidebar.classList.remove('translate-x-full');
+        overlay.classList.remove('hidden');
+    });
+
+    // Close sidebar
+    closeBtn.addEventListener('click', () => {
+        sidebar.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+    });
+
+    // Close when clicking overlay
+    overlay.addEventListener('click', () => {
+        sidebar.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
     });
 </script>
