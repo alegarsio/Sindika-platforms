@@ -214,6 +214,8 @@
         </section>
     </main>
 
+     <%- include('partials/_footer') %> 
+
     <script>
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
@@ -319,5 +321,6 @@
             currentHighlight = (currentHighlight + 1) % fileItems.length;
         }, 3000);
     </script>
+
 </body>
 </html>

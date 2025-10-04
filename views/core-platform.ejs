@@ -25,7 +25,8 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+<body class="bg-gradient-to-br from-blue-50 via-white to-orange-50 min-h-screen text-slate-800">
+
         <%- include('partials/_navbar') %> 
 
     <main class="container mx-auto px-6 pt-32 pb-20 max-w-6xl">
@@ -41,69 +42,66 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <a href="/sindi-ai" class="card-hover glow-effect block p-10 bg-white/80 backdrop-blur-lg border border-white/60 rounded-3xl shadow-xl group">
-                <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-6 gap-6 max-w-7xl mx-auto">
+            <!-- SINDI AI - Large Card (2 columns, 2 rows) -->
+            <a href="/sindi-ai" class="card-hover glow-effect block md:col-span-2 md:row-span-2 p-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl shadow-xl group overflow-hidden relative">
+                <div class="relative z-10">
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-white mb-3">SINDI AI</h3>
+                    <p class="text-blue-100 mb-6 leading-relaxed">Asisten analisis data cerdas untuk memahami tren jemaat dan membuat laporan pelayanan</p>
+                    <span class="inline-flex items-center font-semibold text-white">
+                        Pelajari lebih lanjut
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </span>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-3">SINDI AI</h3>
-                <p class="text-slate-600 mb-4 leading-relaxed">Asisten analisis data cerdas untuk memahami tren jemaat dan membuat laporan pelayanan yang komprehensif</p>
-                <span class="inline-flex items-center font-semibold text-blue-600 group-hover:text-indigo-600 transition-colors">
-                    Pelajari lebih lanjut
-                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </span>
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
             </a>
 
-            <a href="/storage-api" class="card-hover glow-effect block p-10 bg-white/80 backdrop-blur-lg border border-white/60 rounded-3xl shadow-xl group">
-                <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Storage API - Medium Card (2 columns, 1 row) -->
+            <a href="/storage-api" class="card-hover glow-effect block md:col-span-2 p-8 bg-white/80 backdrop-blur-lg border border-white/60 rounded-3xl shadow-xl group">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
                     </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-3">Storage API</h3>
-                <p class="text-slate-600 mb-4 leading-relaxed">Penyimpanan terpusat yang aman untuk semua dokumen gereja, dari notulensi majelis hingga materi pembinaan</p>
-                <span class="inline-flex items-center font-semibold text-emerald-600 group-hover:text-teal-600 transition-colors">
-                    Pelajari lebih lanjut
-                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </span>
+                <h3 class="text-2xl font-bold text-slate-900 mb-2">Storage API</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">Penyimpanan terpusat yang aman untuk semua dokumen gereja</p>
             </a>
 
-            <a href="/e-warta" class="card-hover glow-effect block p-10 bg-white/80 backdrop-blur-lg border border-white/60 rounded-3xl shadow-xl group">
-                <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                    </svg>
+            <!-- E-Warta - Medium Card (2 columns, 1 row) -->
+            <a href="/e-warta" class="card-hover glow-effect block md:col-span-2 p-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl shadow-xl group overflow-hidden relative">
+                <div class="relative z-10">
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">E-Warta Digital</h3>
+                    <p class="text-purple-100 leading-relaxed text-sm">Warta gereja digital yang terintegrasi dan ramah lingkungan</p>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-3">E-Warta Digital</h3>
-                <p class="text-slate-600 mb-4 leading-relaxed">Warta gereja digital yang terintegrasi, mudah didistribusikan, dan ramah lingkungan untuk jemaat masa kini</p>
-                <span class="inline-flex items-center font-semibold text-purple-600 group-hover:text-pink-600 transition-colors">
-                    Pelajari lebih lanjut
-                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </span>
+                <div class="absolute -bottom-5 -right-5 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
             </a>
 
-            <a href="/konselor-ai" class="card-hover glow-effect block p-10 bg-white/80 backdrop-blur-lg border border-white/60 rounded-3xl shadow-xl group">
-                <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-                    </svg>
+            <!-- AI Konselor - Wide Card (4 columns, 1 row) -->
+            <a href="/konselor-ai" class="card-hover glow-effect block md:col-span-4 p-8 bg-white/80 backdrop-blur-lg border border-white/60 rounded-3xl shadow-xl group">
+                <div class="flex items-start gap-6">
+                    <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">AI Konselor</h3>
+                        <p class="text-slate-600 leading-relaxed">Asisten pastoral virtual untuk dukungan awal yang aman, anonim, dan terpercaya bagi jemaat yang membutuhkan</p>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-3">AI Konselor</h3>
-                <p class="text-slate-600 mb-4 leading-relaxed">Asisten pastoral virtual untuk dukungan awal yang aman, anonim, dan terpercaya bagi jemaat yang membutuhkan</p>
-                <span class="inline-flex items-center font-semibold text-amber-600 group-hover:text-orange-600 transition-colors">
-                    Pelajari lebih lanjut
-                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </span>
             </a>
         </div>
 
@@ -115,6 +113,10 @@
                 </a>
             </div>
         </div>
+
+        
     </main>
+     <%- include('partials/_footer') %> 
+    
 </body>
 </html>

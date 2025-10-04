@@ -1,49 +1,74 @@
-/* public/css/style.css */
+body { 
+            font-family: 'Inter', sans-serif; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .elegant-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+        }
+        .feature-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.15);
+        }
 
-body {
-  margin: 0;
-  font-family: sans-serif;
+        @keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-down {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-left {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
-.hero-section {
-  background-color: #f0f4f8;
-  padding: 80px 20px;
-  text-align: center;
-  min-height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
 }
+.animate-fade-in-down {
+  animation: fade-in-down 0.8s ease-out forwards;
+}
+.animate-fade-in-left {
+  animation: fade-in-left 0.8s ease-out forwards;
+}
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }
 
-.hero-content {
-  max-width: 800px;
-}
+@keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.hero-headline {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #1a202c;
-  margin-bottom: 20px;
-}
+        /* Class Helper untuk Animasi */
+        .animate-fade-in-up {
+            /* Menerapkan animasi dan memastikan elemen tersembunyi di awal */
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
 
-.hero-subheadline {
-  font-size: 1.25rem;
-  color: #4a5568;
-  margin-bottom: 30px;
-}
-
-.cta-button {
-  background-color: #3182ce;
-  color: white;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #2b6cb0;
-}
+        /* Class untuk mengatur delay/penundaan animasi */
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+        .animation-delay-600 { animation-delay: 600ms; }
